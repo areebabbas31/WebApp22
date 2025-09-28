@@ -35,7 +35,7 @@ jobs:
 
       # Step 7: Build Docker image
     - name: Build Docker image
-      run:  docker build -f ../Dockerfile -t areeb88/pipeline:latest ../
+      run:  docker build -f Dockerfile -t areeb88/pipeline:latest ../
 
       # Step 8: Push Docker image to Docker Hub
     - name: Push Docker image
