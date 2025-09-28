@@ -5,7 +5,7 @@ WORKDIR /src
 # Copy solution and restore dependencies
 COPY ./*.sln ./
 RUN ls -R ./
-COPY Bulky.Models/Bulky.Models.csproj ./Bulky.Models # copies all csproj files from subfolders
+COPY BulkyBookWeb/BulkyBookWeb.csproj src/BulkyBookWeb/ # copies all csproj files from subfolders
 RUN for file in ./Bulky.Models/Bulky.Models.csproj
 RUN ls -R ./
 RUN pwd && ls -R .
