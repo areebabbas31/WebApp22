@@ -4,10 +4,11 @@ WORKDIR /src
 
 # Copy solution and restore dependencies
 COPY ./*.sln ./
-COPY */BulkyBookWeb/*.csproj ./ # copies all csproj files from subfolders
-RUN for file in ./*.csproj; do dotnet restore "$file"; done
+COPY BulkyBookWeb/BulkyBookWeb.csproj ./BulkyBookWeb/ # copies all csproj files from subfolders
+RUN for file in ./BulkyBookWeb/BulkyBookWeb.csproj; do dotnet restore "$file"; done
 
 # Copy the rest of the source code
+WORKDIR /src
 COPY ./* ./*
 WORKDIR /src
 
