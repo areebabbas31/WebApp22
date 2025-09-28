@@ -37,7 +37,8 @@ jobs:
     - name: Build Docker image
       run: |
           cd ..
-          docker build --no-cache -f WebApp/Dockerfile -t areeb88/pipeline:latest ..  
+          cd ..
+          docker build --no-cache -f WebApp/Dockerfile -t areeb88/pipeline:latest WebApp
 
       # Step 8: Push Docker image to Docker Hub
     - name: Push Docker image
