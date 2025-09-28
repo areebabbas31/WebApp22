@@ -18,4 +18,4 @@ RUN dotnet publish bulky.sln -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "WebApp.dll"]
+ENTRYPOINT ["dotnet", "BulkyBookWeb.dll"]
