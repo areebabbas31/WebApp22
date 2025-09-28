@@ -13,7 +13,7 @@ COPY ./* ./*
 WORKDIR /src
 
 # Build and publish the solution
-RUN dotnet publish bulky.sln -c Release -o /app/publish
+RUN dotnet publish Bulky.sln -c Release -o /app/publish
 
 # Stage 2: Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
