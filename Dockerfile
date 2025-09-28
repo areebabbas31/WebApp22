@@ -6,7 +6,7 @@ WORKDIR /src
 COPY ./*.sln ./
 RUN ls -R ./
 COPY ./Bulky.Models/Bulky.Models.csproj src/Bulky.Models # copies all csproj files from subfolders
-RUN for file in src/BulkyBookWeb/BulkyBookWeb.csproj; do dotnet restore "$file"; donehttps://github.com/areebabbas31/WebApp/blob/main/Dockerfile
+RUN for file in ./Bulky.Models/Bulky.Models.csproj; do dotnet restore "$file"; donehttps://github.com/areebabbas31/WebApp/blob/main/Dockerfile
 RUN ls -R ./
 RUN pwd && ls -R .
 # Copy the rest of the source code
