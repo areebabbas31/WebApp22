@@ -2,15 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-# Copy solution and restore dependencies
+
 COPY ./*.sln ./
 COPY BulkyBookWeb/BulkyBookWeb.csproj src/BulkyBookWeb
-RUN  ./BulkyBookWeb/BulkyBookWeb.csproj
+RUN  dotnet restore ./BulkyBookWeb/BulkyBookWeb.csproj
 
-# Copy the rest of the source code
+
 WORKDIR /src
 COPY ./* ./*
-WORKDIR /src/BulkyBookWeb
+RUN  dotnet restore ./Bulky.Models/Bulky.Models.csproj
+RUN  dotnet restore ./Bulky.Utility/Bulky.Utility.csproj
 
 # Build and publish the solution
 RUN dotnet publish BulkyBookWeb.csproj -c Release -o /app/publish
