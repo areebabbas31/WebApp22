@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run:  dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
@@ -35,8 +35,9 @@ jobs:
 
       # Step 7: Build Docker image
     - name: Build Docker image
-      run:  cd WebApp |
-            docker build -f ./Dockerfile -t areeb88/pipeline:latest .
+      run:  |
+        cd WebApp 
+        docker build -f ./Dockerfile -t areeb88/pipeline:latest .
 
       # Step 8: Push Docker image to Docker Hub
     - name: Push Docker image
