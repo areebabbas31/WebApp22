@@ -35,7 +35,7 @@ jobs:
 
       # Step 7: Build Docker image
     - name: Build Docker image
-      working-directory: ../..
+      
       run: docker build --no-cache -f Dockerfile -t areeb88/pipeline:latest .
 
       # Step 8: Push Docker image to Docker Hub
