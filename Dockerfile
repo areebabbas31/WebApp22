@@ -3,13 +3,13 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 # Copy solution and restore dependencies
-COPY WebApp/*.sln ./
-COPY WebApp/*/*.csproj ./  # copies all csproj files from subfolders
+COPY ./*.sln ./
+COPY ./*/*.csproj ./  # copies all csproj files from subfolders
 RUN for file in ./*.csproj; do dotnet restore "$file"; done
 
 # Copy the rest of the source code
-COPY WebApp/* ./WebApp/*
-WORKDIR /src/WebApp/*
+COPY ./* ./*
+WORKDIR /src
 
 # Build and publish the solution
 RUN dotnet publish bulky.sln -c Release -o /app/publish
