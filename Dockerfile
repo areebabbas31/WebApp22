@@ -8,13 +8,14 @@ RUN ls -R ./
 COPY ./BulkyBookWeb/BulkyBookWeb.csproj src/BulkyBookWeb # copies all csproj files from subfolders
 RUN for file in src/BulkyBookWeb/BulkyBookWeb.csproj; do dotnet restore "$file"; donehttps://github.com/areebabbas31/WebApp/blob/main/Dockerfile
 RUN ls -R ./
+RUN pwd && ls -R .
 # Copy the rest of the source code
 WORKDIR /src
 COPY ./* ./*
-WORKDIR /src
+WORKDIR /src/BulkyBookWeb
 
 # Build and publish the solution
-RUN dotnet publish Bulky.sln -c Release -o /app/publish
+RUN dotnet publish BulkyBookWeb.csproj -c Release -o /app/publish
 
 # Stage 2: Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
