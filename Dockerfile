@@ -8,8 +8,8 @@ COPY WebApp/*/*.csproj ./  # copies all csproj files from subfolders
 RUN for file in ./*.csproj; do dotnet restore "$file"; done
 
 # Copy the rest of the source code
-COPY WebApp/. ./WebApp/
-WORKDIR /src/WebApp
+COPY WebApp/* ./WebApp/*
+WORKDIR /src/WebApp/*
 
 # Build and publish the solution
 RUN dotnet publish bulky.sln -c Release -o /app/publish
