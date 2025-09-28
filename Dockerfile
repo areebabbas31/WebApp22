@@ -4,9 +4,10 @@ WORKDIR /src
 
 # Copy solution and restore dependencies
 COPY ./*.sln ./
+RUN ls -R ./
 COPY ./* ./* # copies all csproj files from subfolders
 RUN for file in ./BulkyBookWeb/BulkyBookWeb.csproj; do dotnet restore "$file"; donehttps://github.com/areebabbas31/WebApp/blob/main/Dockerfile
-
+RUN ls -R ./
 # Copy the rest of the source code
 WORKDIR /src
 COPY ./* ./*
