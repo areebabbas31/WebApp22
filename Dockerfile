@@ -9,7 +9,7 @@ RUN  dotnet restore ./BulkyBookWeb/BulkyBookWeb.csproj
 
 
 WORKDIR /src
-COPY ./* ./*
+COPY . ./
 RUN  dotnet restore ./Bulky.Models/Bulky.Models.csproj
 RUN  dotnet restore ./Bulky.Utility/Bulky.Utility.csproj
 
