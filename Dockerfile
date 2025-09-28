@@ -4,11 +4,9 @@ WORKDIR /src
 
 # Copy solution and restore dependencies
 COPY ./*.sln ./
-RUN ls -R ./
-COPY BulkyBookWeb/BulkyBookWeb.csproj src/BulkyBookWeb/ 
+COPY BulkyBookWeb/BulkyBookWeb.csproj src/BulkyBookWeb
 RUN for file in ./BulkyBookWeb/BulkyBookWeb.csproj
-RUN ls -R ./
-RUN pwd && ls -R .
+
 # Copy the rest of the source code
 WORKDIR /src
 COPY ./* ./*
