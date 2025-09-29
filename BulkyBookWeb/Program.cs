@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using BulkyBookWeb.Repository;
 using BulkyBookWeb.Data;
 using BulkyBookWeb.Repository.IRepository;
+using Microsoft.AspNetCore.DataProtection;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
