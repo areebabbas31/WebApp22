@@ -18,12 +18,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);       // how long session will last
-    options.Cookie.HttpOnly = true;                       // only accessible by server
-    options.Cookie.IsEssential = true;                    // required for non-consent scenarios
-});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,7 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession();
+
 
 app.UseAuthorization();
 
